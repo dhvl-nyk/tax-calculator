@@ -1,5 +1,5 @@
 # tax-calculator
-Input - input.txt
+Input - input.txt <br/>
 output - output.png
 use mvn to build project and run test cases
 
