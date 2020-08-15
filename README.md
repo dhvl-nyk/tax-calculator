@@ -1,6 +1,6 @@
 # tax-calculator
-Input - **input.txt** <br/>
-output - **output.png** <br/>
+Input - input.txt <br/>
+output - output.png <br/>
 use mvn to build project and run test cases
 
 All the main code is present in src folder. <br/>
