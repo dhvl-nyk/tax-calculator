@@ -2,6 +2,8 @@ package com.boku.taxcalculations;
 
 public interface ITaxCalculator
 {
-	public double calculateTax(double price, double tax, boolean imported);
-	
+	double calculateTax(double price, double tax, boolean imported);
+
+	double getTaxBasedOnProductType(String country, String type);
+
 }

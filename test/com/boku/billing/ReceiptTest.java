@@ -1,8 +1,5 @@
 package com.boku.billing;
 
-import com.boku.products.BookProduct;
-import com.boku.products.FoodProduct;
-import com.boku.products.MedicalProduct;
 import com.boku.products.Product;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,15 +14,14 @@ public class ReceiptTest {
 
     private Receipt receiptUnderTest;
     private List<Product> productList =  new ArrayList<>();
-    private MedicalProduct medicalProduct;
-    private FoodProduct foodProduct;
+    private Product product;
 
     @Before
     public void setUp() {
-        medicalProduct = new MedicalProduct("book", 10.01, true, 1);
-        foodProduct = new FoodProduct("packet of headache pills", 20.10, false, 1);
-        productList.add(medicalProduct);
-        productList.add(foodProduct);
+        product = new Product("book", 10.01, true, 1, "bookProduct");
+        productList.add(product);
+        product = new Product("packet of headache pills", 20.10, false, 1, "MedicalProduct");
+        productList.add(product);
         receiptUnderTest = new Receipt(productList, 2.00, 30.20);
     }
 

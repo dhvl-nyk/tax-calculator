@@ -11,17 +11,7 @@ public class ProductTest {
 
     @Before
     public void setUp() {
-        productUnderTest = new Product("book", 12.49, false, 1) {
-            @Override
-            public Product createProduct(String name, double price, boolean imported, int quantity) {
-                return null;
-            }
-
-            @Override
-            public double getTaxValue(String country) {
-                return 0;
-            }
-        };
+        productUnderTest = new Product("book", 12.49, false, 1, "bookProduct");
     }
 
     @Test

@@ -1,43 +1,32 @@
 package com.boku.shop;
 import java.util.*;
 
+import com.boku.dao.IInputProvider;
+import com.boku.dao.InputService;
 import com.boku.products.*;
-
 
 /**
  * The StoreShelf stores all the different categories of product.
  */
 public class StoreShelf {
 
+	InputService inputService = new InputService();
 	/** The product items mapped to their respective categories */
-	private HashMap<String, Product> productItems;
-	
-	
-	public StoreShelf()
+	private HashMap<String, String> productItems;
+
+	public StoreShelf(String inputType)
 	{
-		productItems = new HashMap<>();
-		populateProductItems("book", new BookProduct());
-		populateProductItems("music CD" , new MiscellaneousProduct());
-		populateProductItems("chocolate bar", new FoodProduct());
-		populateProductItems("imported box of chocolates" , new FoodProduct());
-		populateProductItems("box of imported chocolates" , new FoodProduct());
-		populateProductItems("imported bottle of perfume", new MiscellaneousProduct());
-		populateProductItems("bottle of perfume", new MiscellaneousProduct());
-		populateProductItems("packet of headache pills", new MedicalProduct());
+		productItems = inputService.getInputProvider(inputType).fetchInput();
 	}
 	
-	public void populateProductItems(String productItem, Product productCategory)
-	{
-		productItems.put(productItem, productCategory);
-		
-	}
 	public Product searchAndRetrieveItemFromShelf(String name, double price, boolean imported, int quantity)
 	{
 		Product productItem = null;
-		if (productItems.containsKey(name))
-			productItem = productItems.get(name).createProduct(name, price, imported, quantity);
+		if (productItems.containsKey(name)) {
+			String productType = productItems.get(name);
+			productItem = new Product(name, price, imported, quantity, productType);
+		}
 		return productItem;
 	}
-
 }
 

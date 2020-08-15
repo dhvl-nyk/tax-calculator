@@ -18,7 +18,7 @@ import java.util.stream.Stream;
  * The MainProgram test drives the sales tax project
  */
 
-public class MainProgram {
+class MainProgram {
 
 	static List<String> orderItems = new ArrayList<>();
 	static Map<Integer,List<String>> orderHash = new HashMap();

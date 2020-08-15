@@ -10,6 +10,7 @@ import com.boku.billing.Receipt;
 import com.boku.products.Product;
 
 import static com.boku.util.Constants.INDIA;
+import static com.boku.util.Constants.INMEMORY;
 
 
 /**
@@ -25,7 +26,7 @@ public class Store
 	public Store() {
 		country = INDIA;
 		shoppingBasket = new ShoppingBasket();
-		storeShelf = new StoreShelf();
+		storeShelf = new StoreShelf(INMEMORY);
 		paymentCounter = new PaymentCounter(country);
 	}
 

@@ -1,32 +1,31 @@
 package com.boku.products;
 
-public abstract class Product
+import com.boku.taxcalculations.ITaxCalculator;
+import com.boku.taxcalculations.impl.IndiaTaxCalculatorImpl;
+
+public class Product
 {
-	
+
 	protected String name;
 	protected double price;
 	protected Boolean imported;
 	protected int quantity;
 	protected double taxedCost;
+	protected String type;
 
-	public Product() {
-		this.name = "";
-		this.price = 0.0;
-		this.imported = false;
-		this.quantity = 0;
-		this.taxedCost = 0.0;
-	}
-	
-	public Product(String name, double price, boolean imported, int quantity) {
+	ITaxCalculator taxCalculator = new IndiaTaxCalculatorImpl();
+
+	public Product(String name, double price, boolean imported, int quantity, String type) {
 		this.name = name;
 		this.price = price * quantity;
 		this.imported = imported;
 		this.quantity = quantity;
+		this.type = type;
 	}
 
-	public abstract Product createProduct(String name, double price, boolean imported, int quantity);
-
-	public abstract double getTaxValue(String country);
+	public double getTaxValue(String country, String type) {
+		return taxCalculator.getTaxBasedOnProductType(country, type);
+	}
 
 	public String getName()
 	{
@@ -37,21 +36,16 @@ public abstract class Product
 		return price;
 	}
 
+	public String getType() {
+		return type;
+	}
 	/**
 	 * Calculates the price for the number of items mentioned in the quantity.
 	 */
-	public void setPrice(double price) {
-		this.price = price * quantity;
-	}
-
 	public boolean isImported() {
 		return imported;
 	}
 
-	public void setImported(boolean imported) {
-		this.imported = imported;
-	}
-			
 	public int getQuantity() {
 		return quantity;
 	}

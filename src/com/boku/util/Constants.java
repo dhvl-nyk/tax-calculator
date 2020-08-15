@@ -2,6 +2,8 @@ package com.boku.util;
 
 public class Constants {
     public static final String INDIA               = "INDIA";
+    public static final String INMEMORY            = "INMEMORY";
+    public static final String DATABASE            = "DATABASE";
 
     public enum TaxRate
     {

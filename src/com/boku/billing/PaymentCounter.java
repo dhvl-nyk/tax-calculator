@@ -31,7 +31,7 @@ public class PaymentCounter
 
 			if (product != null) {
 				//computes the total tax of product by a regional tax rates
-				double productTax = bill.calculateTax(product.getPrice(), product.getTaxValue(country), product.isImported());
+				double productTax = bill.calculateTax(product.getPrice(), product.getTaxValue(country, product.getType()), product.isImported());
 
 				//computes the product price with tax
 				double taxedCost = bill.calcTotalProductPrice(product.getPrice(), productTax);

@@ -1,11 +1,10 @@
 package com.boku.shop;
 
-import com.boku.products.FoodProduct;
-import com.boku.products.FoodProductTest;
 import com.boku.products.Product;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.boku.util.Constants.INMEMORY;
 import static org.junit.Assert.assertEquals;
 
 public class StoreShelfTest {
@@ -14,13 +13,13 @@ public class StoreShelfTest {
 
     @Before
     public void setUp() {
-        storeShelfUnderTest = new StoreShelf();
+        storeShelfUnderTest = new StoreShelf(INMEMORY);
     }
 
     @Test
     public void testSearchAndRetrieveItemFromShelf() {
         // Setup
-        final Product result = storeShelfUnderTest.searchAndRetrieveItemFromShelf("imported bottle of perfume", 32.19, true, 1);
+        Product result = storeShelfUnderTest.searchAndRetrieveItemFromShelf("imported bottle of perfume", 32.19, true, 1);
 
         // Run the test
         assertEquals("imported bottle of perfume", result.getName());
