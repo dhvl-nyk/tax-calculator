@@ -1,7 +1,6 @@
 package com.boku.shop;
-import java.util.*;
+import java.util.*; 
 
-import com.boku.dao.IInputProvider;
 import com.boku.dao.InputService;
 import com.boku.products.*;
 
@@ -12,7 +11,7 @@ public class StoreShelf {
 
 	InputService inputService = new InputService();
 	/** The product items mapped to their respective categories */
-	private HashMap<String, String> productItems;
+	private Map<String, String> productItems;
 
 	public StoreShelf(String inputType)
 	{
