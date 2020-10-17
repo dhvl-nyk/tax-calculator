@@ -1,9 +1,9 @@
 package com.boku.shop;
-import java.util.*;
 
-import com.boku.dao.IInputProvider;
+import java.util.Map;
+
 import com.boku.dao.InputService;
-import com.boku.products.*;
+import com.boku.products.Product;
 
 /**
  * The StoreShelf stores all the different categories of product.
@@ -12,15 +12,13 @@ public class StoreShelf {
 
 	InputService inputService = new InputService();
 	/** The product items mapped to their respective categories */
-	private HashMap<String, String> productItems;
+	private Map<String, String> productItems;
 
-	public StoreShelf(String inputType)
-	{
+	public StoreShelf(String inputType) {
 		productItems = inputService.getInputProvider(inputType).fetchInput();
 	}
-	
-	public Product searchAndRetrieveItemFromShelf(String name, double price, boolean imported, int quantity)
-	{
+
+	public Product searchAndRetrieveItemFromShelf(String name, double price, boolean imported, int quantity) {
 		Product productItem = null;
 		if (productItems.containsKey(name)) {
 			String productType = productItems.get(name);
@@ -29,4 +27,3 @@ public class StoreShelf {
 		return productItem;
 	}
 }
-
