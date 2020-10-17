@@ -3,7 +3,6 @@ package com.boku.taxcalculations.impl;
 import com.boku.taxcalculations.ITaxCalculator;
 import com.boku.util.Constants;
 import com.boku.util.MathUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.boku.util.Constants.INDIA;
 
