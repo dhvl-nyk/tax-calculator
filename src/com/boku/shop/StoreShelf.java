@@ -12,7 +12,7 @@ public class StoreShelf {
 
 	InputService inputService = new InputService();
 	/** The product items mapped to their respective categories */
-	private HashMap<String, String> productItems;
+	private Map<String, String> productItems;
 
 	public StoreShelf(String inputType)
 	{

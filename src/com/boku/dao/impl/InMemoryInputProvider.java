@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @Qualifier(value = "inMemoryInputProvider")
 public class InMemoryInputProvider implements IInputProvider {
 
-    private HashMap<String, String> productItems;
+    private Map<String, String> productItems;
 
     @Override
-    public HashMap<String, String> fetchInput() {
+    public Map<String, String> fetchInput() {
         productItems = new HashMap<>();
         populateProductItems("book", "BookProduct");
         populateProductItems("music CD" , "MiscellaneousProduct");
@@ -27,10 +28,8 @@ public class InMemoryInputProvider implements IInputProvider {
         return productItems;
     }
 
-    public void populateProductItems(String productItem, String productCategory)
-    {
+    public void populateProductItems(String productItem, String productCategory) {
         productItems.put(productItem, productCategory);
-
     }
 
 }
