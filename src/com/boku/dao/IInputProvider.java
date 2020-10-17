@@ -1,9 +1,10 @@
 package com.boku.dao;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public interface IInputProvider {
 
-    HashMap<String, String> fetchInput();
+    Map<String, String> fetchInput();
 
 }
