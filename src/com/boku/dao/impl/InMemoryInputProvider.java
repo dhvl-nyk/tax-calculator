@@ -10,9 +10,7 @@ import java.util.HashMap;
 @Service
 @Qualifier(value = "inMemoryInputProvider")
 public class InMemoryInputProvider implements IInputProvider {
-
     private HashMap<String, String> productItems;
-
     @Override
     public HashMap<String, String> fetchInput() {
         productItems = new HashMap<>();
@@ -26,11 +24,8 @@ public class InMemoryInputProvider implements IInputProvider {
         populateProductItems("packet of headache pills", "MedicalProduct");
         return productItems;
     }
-
     public void populateProductItems(String productItem, String productCategory)
     {
         productItems.put(productItem, productCategory);
-
     }
-
 }

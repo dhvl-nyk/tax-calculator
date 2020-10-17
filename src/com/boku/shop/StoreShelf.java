@@ -9,16 +9,13 @@ import com.boku.products.*;
  * The StoreShelf stores all the different categories of product.
  */
 public class StoreShelf {
-
 	InputService inputService = new InputService();
 	/** The product items mapped to their respective categories */
 	private HashMap<String, String> productItems;
-
 	public StoreShelf(String inputType)
 	{
 		productItems = inputService.getInputProvider(inputType).fetchInput();
 	}
-	
 	public Product searchAndRetrieveItemFromShelf(String name, double price, boolean imported, int quantity)
 	{
 		Product productItem = null;
@@ -29,4 +26,3 @@ public class StoreShelf {
 		return productItem;
 	}
 }
-
